@@ -1,0 +1,38 @@
+
+[
+  {
+    "id": "tuyen-sinh",
+    "name": "Thông tin tuyển sinh",
+    "description": "Phương thức, điều kiện, hồ sơ và thời gian tuyển sinh."
+  },
+  {
+    "id": "hoc-phi",
+    "name": "Học phí",
+    "description": "Mức học phí và các thông báo thu học phí."
+  },
+  {
+    "id": "nganh-hoc",
+    "name": "Ngành đào tạo",
+    "description": "Danh sách ngành và thông tin ngành học."
+  },
+  {
+    "id": "hoc-vu",
+    "name": "Học vụ",
+    "description": "Tín chỉ, học phần, đăng ký môn học và quy chế đào tạo."
+  },
+  {
+    "id": "lien-he",
+    "name": "Liên hệ",
+    "description": "Địa chỉ, số điện thoại và các kênh liên hệ."
+  },
+  {
+    "id": "chuong-trinh-dao-tao",
+    "name": "Chương trình đào tạo",
+    "description": "Khung chương trình, môn học và chuẩn đầu ra."
+  },
+  {
+    "id": "sinh-vien",
+    "name": "Thông tin sinh viên",
+    "description": "Dịch vụ và hoạt động hỗ trợ sinh viên."
+  }
+]

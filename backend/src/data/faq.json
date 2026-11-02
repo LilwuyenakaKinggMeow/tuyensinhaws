@@ -1,0 +1,120 @@
+
+[
+  {
+    "id": "faq-001",
+    "category": "tuyen-sinh",
+    "keywords": [
+      "tuyển sinh",
+      "thông tin tuyển sinh",
+      "xét tuyển",
+      "phương thức xét tuyển",
+      "đăng ký xét tuyển",
+      "hồ sơ tuyển sinh",
+      "điều kiện tuyển sinh",
+      "thời gian tuyển sinh"
+    ],
+    "content": "Thông tin tuyển sinh của Đại học Đông Á cần được tra cứu theo đề án và thông báo chính thức của từng năm tuyển sinh. Thí sinh cần kiểm tra phương thức xét tuyển, điều kiện, hồ sơ và thời gian đăng ký trong tài liệu tuyển sinh tương ứng.",
+    "source": "Website tuyển sinh Đại học Đông Á",
+    "sourceUrl": "https://tuyensinh.donga.edu.vn/",
+    "updatedAt": "2026-11-01"
+  },
+  {
+    "id": "faq-002",
+    "category": "hoc-phi",
+    "keywords": [
+      "học phí",
+      "mức học phí",
+      "đóng học phí",
+      "học phí một kỳ",
+      "học phí một năm",
+      "học phí ngành học"
+    ],
+    "content": "Thông tin mức học phí cần được cập nhật từ thông báo chính thức của nhà trường theo từng năm học, ngành đào tạo và chương trình học. Hiện Knowledge Base chưa có bảng học phí đã xác minh.",
+    "source": "Thông báo học phí Đại học Đông Á",
+    "sourceUrl": "https://donga.edu.vn/",
+    "updatedAt": "2026-11-01"
+  },
+  {
+    "id": "faq-003",
+    "category": "nganh-hoc",
+    "keywords": [
+      "ngành học",
+      "các ngành học",
+      "ngành đào tạo",
+      "các ngành đào tạo",
+      "danh sách ngành",
+      "chuyên ngành",
+      "đại học đông á có những ngành nào",
+      "trường có ngành gì"
+    ],
+    "content": "Danh sách ngành đào tạo của Đại học Đông Á cần được cập nhật từ danh mục ngành chính thức của nhà trường. Knowledge Base chưa có danh sách ngành đã được xác minh đầy đủ.",
+    "source": "Thông tin đào tạo Đại học Đông Á",
+    "sourceUrl": "https://donga.edu.vn/",
+    "updatedAt": "2026-11-01"
+  },
+  {
+    "id": "faq-004",
+    "category": "hoc-vu",
+    "keywords": [
+      "tín chỉ",
+      "học phần",
+      "đăng ký môn học",
+      "đăng ký tín chỉ",
+      "quy chế đào tạo",
+      "điểm học phần"
+    ],
+    "content": "Thông tin về đăng ký học phần, tín chỉ, lịch học và quy chế đào tạo cần được cập nhật theo văn bản học vụ chính thức của nhà trường. Chưa có tài liệu quy chế cụ thể được xác minh trong Knowledge Base.",
+    "source": "Thông tin học vụ Đại học Đông Á",
+    "sourceUrl": "https://donga.edu.vn/",
+    "updatedAt": "2026-11-01"
+  },
+  {
+    "id": "faq-005",
+    "category": "lien-he",
+    "keywords": [
+      "liên hệ",
+      "địa chỉ trường",
+      "địa chỉ đại học đông á",
+      "số điện thoại",
+      "website trường",
+      "phòng tuyển sinh",
+      "thông tin liên hệ"
+    ],
+    "content": "Người dùng có thể truy cập website chính thức của Đại học Đông Á để tìm thông tin liên hệ và các kênh hỗ trợ của nhà trường. Số điện thoại và địa chỉ chi tiết cần được xác minh từ nguồn chính thức trước khi bổ sung.",
+    "source": "Website Đại học Đông Á",
+    "sourceUrl": "https://donga.edu.vn/",
+    "updatedAt": "2026-11-01"
+  },
+  {
+    "id": "faq-006",
+    "category": "chuong-trinh-dao-tao",
+    "keywords": [
+      "chương trình đào tạo",
+      "khung chương trình",
+      "chương trình học",
+      "môn học",
+      "lộ trình học tập",
+      "chuẩn đầu ra"
+    ],
+    "content": "Thông tin chương trình đào tạo cần được tra cứu theo từng ngành và phiên bản chương trình áp dụng. Knowledge Base chưa có bộ chương trình đào tạo chính thức đã xác minh.",
+    "source": "Thông tin đào tạo Đại học Đông Á",
+    "sourceUrl": "https://donga.edu.vn/",
+    "updatedAt": "2026-11-01"
+  },
+  {
+    "id": "faq-007",
+    "category": "sinh-vien",
+    "keywords": [
+      "sinh viên",
+      "công tác sinh viên",
+      "thẻ sinh viên",
+      "hỗ trợ sinh viên",
+      "hoạt động sinh viên",
+      "dịch vụ sinh viên"
+    ],
+    "content": "Các thông tin về hỗ trợ sinh viên, hoạt động sinh viên và dịch vụ dành cho sinh viên cần được cập nhật từ thông báo và tài liệu chính thức của Đại học Đông Á.",
+    "source": "Thông tin sinh viên Đại học Đông Á",
+    "sourceUrl": "https://donga.edu.vn/",
+    "updatedAt": "2026-11-01"
+  }
+]
