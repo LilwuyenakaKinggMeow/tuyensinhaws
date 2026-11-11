@@ -286,8 +286,8 @@ Các nội dung kiểm thử chính:
 ## 12. Thành viên thực hiện
 
 **Thành viên:**
-- Nguyên
-- Hoàng
+- Nguyên đẹp trai số 1 thế giới
+- Hoàng đẹp trai số 2 thế giới
 
 **Môn học:** Điện toán đám mây (Cloud Computing)
 
