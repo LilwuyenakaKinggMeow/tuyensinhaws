@@ -8,7 +8,133 @@ const sendButton = document.getElementById("sendButton");
 let chatHistory = [];
 
 // ========================================
-// 1. DISPLAY MESSAGE
+// 1. MARKDOWN RENDERER
+// ========================================
+
+// Chuyển các ký tự HTML nguy hiểm thành văn bản
+function escapeHTML(text) {
+    return String(text).replace(/[&<>"']/g, char => {
+        const entities = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        };
+
+        return entities[char];
+    });
+}
+
+// Xử lý Markdown cơ bản
+function formatInlineMarkdown(text) {
+    let result = escapeHTML(text);
+
+    // Inline code
+    result = result.replace(/`([^`]+)`/g, "<code>$1</code>");
+
+    // Bold
+    result = result.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    result = result.replace(/__(.+?)__/g, "<strong>$1</strong>");
+
+    // Italic
+    result = result.replace(/\*(.+?)\*/g, "<em>$1</em>");
+    result = result.replace(/_(.+?)_/g, "<em>$1</em>");
+
+    return result;
+}
+
+// Chuyển Markdown thành HTML
+function renderMarkdown(text) {
+    if (!text) return "";
+
+    const lines = String(text).replace(/\r\n/g, "\n").split("\n");
+
+    let html = "";
+    let paragraph = [];
+    let listType = null;
+
+    function closeParagraph() {
+        if (paragraph.length > 0) {
+            html += `<p>${paragraph.map(formatInlineMarkdown).join("<br>")}</p>`;
+            paragraph = [];
+        }
+    }
+
+    function closeList() {
+        if (listType) {
+            html += `</${listType}>`;
+            listType = null;
+        }
+    }
+
+    for (const line of lines) {
+        const trimmed = line.trim();
+
+        // Dòng trống
+        if (!trimmed) {
+            closeParagraph();
+            closeList();
+            continue;
+        }
+
+        // Tiêu đề Markdown: #, ##, ###
+        const heading = trimmed.match(/^(#{1,3})\s+(.+)$/);
+
+        if (heading) {
+            closeParagraph();
+            closeList();
+
+            const level = heading[1].length;
+            html += `<h${level}>${formatInlineMarkdown(heading[2])}</h${level}>`;
+            continue;
+        }
+
+        // Danh sách không thứ tự
+        const unordered = trimmed.match(/^[-*+]\s+(.+)$/);
+
+        if (unordered) {
+            closeParagraph();
+
+            if (listType !== "ul") {
+                closeList();
+                html += "<ul>";
+                listType = "ul";
+            }
+
+            html += `<li>${formatInlineMarkdown(unordered[1])}</li>`;
+            continue;
+        }
+
+        // Danh sách có thứ tự
+        const ordered = trimmed.match(/^\d+[.)]\s+(.+)$/);
+
+        if (ordered) {
+            closeParagraph();
+
+            if (listType !== "ol") {
+                closeList();
+                html += "<ol>";
+                listType = "ol";
+            }
+
+            html += `<li>${formatInlineMarkdown(ordered[1])}</li>`;
+            continue;
+        }
+
+        // Nội dung thông thường
+        closeList();
+        paragraph.push(trimmed);
+    }
+
+    closeParagraph();
+    closeList();
+
+    return html;
+}
+
+// ========================================
+// 2. DISPLAY MESSAGE
 // ========================================
 
 function addMessage(text, type, source = null) {
@@ -16,8 +142,10 @@ function addMessage(text, type, source = null) {
     message.className = `message ${type}`;
 
     const bubble = document.createElement("div");
-    bubble.className = "bubble";
-    bubble.textContent = text;
+    bubble.className = "bubble markdown-content";
+
+    // Render Markdown thay vì hiển thị text thuần
+    bubble.innerHTML = renderMarkdown(text);
 
     message.appendChild(bubble);
 
@@ -34,7 +162,7 @@ function addMessage(text, type, source = null) {
 }
 
 // ========================================
-// 2. LOADING
+// 3. LOADING
 // ========================================
 
 function showLoading() {
@@ -51,7 +179,7 @@ function showLoading() {
 }
 
 // ========================================
-// 3. SEND MESSAGE
+// 4. SEND MESSAGE
 // ========================================
 
 async function sendMessage() {
@@ -147,7 +275,7 @@ async function sendMessage() {
 }
 
 // ========================================
-// 4. ENTER TO SEND
+// 5. ENTER TO SEND
 // ========================================
 
 function handleEnter(event) {
@@ -158,7 +286,7 @@ function handleEnter(event) {
 }
 
 // ========================================
-// 5. QUICK QUESTIONS
+// 6. QUICK QUESTIONS
 // ========================================
 
 function quickQuestion(question) {
@@ -167,7 +295,7 @@ function quickQuestion(question) {
 }
 
 // ========================================
-// 6. NEW CHAT
+// 7. NEW CHAT
 // ========================================
 
 function newChat() {
@@ -189,3 +317,100 @@ function newChat() {
     messageInput.value = "";
     messageInput.focus();
 }
+// ========================================
+// CHAT WIDGET CONTROLS
+// ========================================
+
+function openChat() {
+    const chatWindow = document.getElementById("chatWindow");
+
+    chatWindow.classList.add("open");
+    chatWindow.classList.remove("minimized");
+
+    setTimeout(() => {
+        document.getElementById("messageInput")?.focus();
+    }, 100);
+}
+
+function closeChat() {
+    const chatWindow = document.getElementById("chatWindow");
+
+    chatWindow.classList.remove("open");
+    chatWindow.classList.remove("minimized");
+}
+
+function toggleChat() {
+    const chatWindow = document.getElementById("chatWindow");
+
+    if (chatWindow.classList.contains("open")) {
+        closeChat();
+    } else {
+        openChat();
+    }
+}
+
+function minimizeChat() {
+    document.getElementById("chatWindow")
+        .classList.toggle("minimized");
+}
+
+// Mở chatbot và gửi câu hỏi từ các thẻ chức năng
+function askUDA(question) {
+    openChat();
+    quickQuestion(question);
+}
+
+// Tìm kiếm từ thanh tìm kiếm trang chủ
+function searchHome() {
+    const input = document.getElementById("homeSearch");
+    const question = input.value.trim();
+
+    if (!question) {
+        input.focus();
+        return;
+    }
+
+    openChat();
+    quickQuestion(question);
+    input.value = "";
+}
+// Khởi tạo Lucide Icons
+if (window.lucide) {
+    lucide.createIcons();
+}
+// Kiểm tra trạng thái Backend
+async function checkBackendStatus() {
+    const statusElement = document.getElementById("backendStatus");
+
+    if (!statusElement) return;
+
+    const textElement = statusElement.querySelector(".status-text");
+
+    statusElement.classList.remove("online", "offline");
+    statusElement.classList.add("checking");
+    textElement.textContent = "Đang kiểm tra...";
+
+    try {
+        const response = await fetch("http://localhost:3000/api/health", {
+            method: "GET",
+            cache: "no-store"
+        });
+
+        if (!response.ok) {
+            throw new Error("Backend không phản hồi");
+        }
+
+        statusElement.classList.remove("checking", "offline");
+        statusElement.classList.add("online");
+        textElement.textContent = "Trực tuyến";
+
+    } catch (error) {
+        statusElement.classList.remove("checking", "online");
+        statusElement.classList.add("offline");
+        textElement.textContent = "Ngoại tuyến";
+    }
+}
+
+// Kiểm tra khi mở trang và lặp lại mỗi 5 giây
+checkBackendStatus();
+setInterval(checkBackendStatus, 5000);

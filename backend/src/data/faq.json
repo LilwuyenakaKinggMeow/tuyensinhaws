@@ -1,4 +1,3 @@
-
 [
   {
     "id": "faq-001",
@@ -27,12 +26,20 @@
       "đóng học phí",
       "học phí một kỳ",
       "học phí một năm",
-      "học phí ngành học"
+      "học phí ngành học",
+      "học phí công nghệ thông tin",
+      "học phí cntt",
+      "học phí kỹ thuật máy tính",
+      "giá một tín chỉ",
+      "một tín chỉ bao nhiêu tiền",
+      "học phí ngành kỹ thuật máy tính",
+      "học phí học kỳ đầu",
+      "học phí năm 2026"
     ],
-    "content": "Thông tin mức học phí cần được cập nhật từ thông báo chính thức của nhà trường theo từng năm học, ngành đào tạo và chương trình học. Hiện Knowledge Base chưa có bảng học phí đã xác minh.",
-    "source": "Thông báo học phí Đại học Đông Á",
-    "sourceUrl": "https://donga.edu.vn/",
-    "updatedAt": "2026-11-01"
+    "content": "HỌC PHÍ ĐẠI HỌC ĐÔNG Á NĂM 2026 – CHƯƠNG TRÌNH ĐẠI HỌC CHÍNH QUY:\n\n1. Ngành Công nghệ thông tin: 860.000 đồng/tín chỉ. Học phí học kỳ 1: 13.760.000 đồng.\n2. Ngành Kỹ thuật máy tính: 860.000 đồng/tín chỉ. Học phí học kỳ 1: 13.760.000 đồng.\n3. Ngành Trí tuệ nhân tạo: 865.000 đồng/tín chỉ. Học phí học kỳ 1: 13.840.000 đồng.\n4. Ngành Công nghệ kỹ thuật ô tô: 865.000 đồng/tín chỉ. Học phí học kỳ 1: 13.840.000 đồng.\n5. Ngành Quản trị kinh doanh: 845.000 đồng/tín chỉ. Học phí học kỳ 1: 13.520.000 đồng.\n6. Ngành Marketing: 845.000 đồng/tín chỉ. Học phí học kỳ 1: 13.520.000 đồng.\n7. Ngành Ngôn ngữ Anh: 830.000 đồng/tín chỉ. Học phí học kỳ 1: 13.280.000 đồng.\n\nLưu ý: Đây là mức học phí chương trình đại học chính quy năm 2026, không áp dụng cho sinh viên quốc tế. Học phí mỗi học kỳ được tính theo đơn giá tín chỉ và số tín chỉ đào tạo. Từ giai đoạn 2, bắt đầu từ năm thứ 3, học phí được điều chỉnh tăng 10% mỗi tín chỉ theo thông báo của trường. Đơn giá và chính sách cần được đối chiếu với chương trình đào tạo cụ thể.",
+    "source": "Thông báo học phí Đại học Đông Á năm 2026",
+    "sourceUrl": "https://donga.edu.vn/tin-tuc/ttsk-chi-tiet/dai-hoc-dong-a-cong-bo-hoc-phi-nam-2026-bac-dai-hoc-chinh-quy-44617",
+    "updatedAt": "2026-11-03"
   },
   {
     "id": "faq-003",
@@ -116,5 +123,29 @@
     "source": "Thông tin sinh viên Đại học Đông Á",
     "sourceUrl": "https://donga.edu.vn/",
     "updatedAt": "2026-11-01"
+  },
+  {
+    "id": "faq-008",
+    "category": "diem-chuan",
+    "keywords": [
+      "điểm chuẩn",
+      "điểm trúng tuyển",
+      "điểm chuẩn năm 2026",
+      "điểm chuẩn cntt",
+      "điểm chuẩn công nghệ thông tin",
+      "điểm chuẩn kỹ thuật máy tính",
+      "điểm chuẩn ngành công nghệ thông tin",
+      "điểm chuẩn đại học đông á",
+      "điểm xét tuyển",
+      "điểm sàn",
+      "điểm thi tốt nghiệp",
+      "điểm chuẩn học bạ",
+      "điểm đánh giá năng lực",
+      "điểm đgnl"
+    ],
+    "content": "ĐIỂM TRÚNG TUYỂN ĐẠI HỌC ĐÔNG Á NĂM 2026:\n\nĐối với nhóm các ngành còn lại, bao gồm Công nghệ thông tin và Kỹ thuật máy tính:\n\n1. Xét điểm thi tốt nghiệp THPT: Tổng điểm 3 môn xét tuyển từ 15 điểm trở lên.\n2. Xét kết quả học tập THPT: Điểm trung bình 3 năm lớp 10, 11, 12 theo tổ hợp xét tuyển từ 18 điểm trở lên.\n3. Xét kết quả kỳ thi Đánh giá năng lực ĐHQG TP.HCM: Các mức điểm theo tổ hợp gồm A00 từ 501 điểm, A01 từ 618 điểm, B00 từ 491 điểm, C00 từ 382 điểm và D01 từ 513 điểm. Thí sinh cần đáp ứng điều kiện điểm thi tốt nghiệp THPT từ 15 điểm theo thông báo tuyển sinh.\n\nLưu ý: Đây là mức áp dụng cho nhóm các ngành còn lại, không phải mức điểm riêng được công bố cho từng ngành. Các ngành Sức khỏe, Giáo viên và Pháp luật có điều kiện xét tuyển riêng. Điểm trúng tuyển còn phụ thuộc phương thức xét tuyển, tổ hợp môn, điểm ưu tiên và điều kiện của từng ngành.",
+    "source": "Thông báo điểm chuẩn trúng tuyển Đại học Đông Á năm 2026",
+    "sourceUrl": "https://donga.edu.vn/tuyensinh/ts-chi-tiet/truong-dai-hoc-dong-a-cong-bo-diem-chuan-trung-tuyen-nam-2026-44629",
+    "updatedAt": "2026-11-03"
   }
 ]

@@ -1,4 +1,3 @@
-
 [
   {
     "id": "tuyen-sinh",
@@ -34,5 +33,10 @@
     "id": "sinh-vien",
     "name": "Thông tin sinh viên",
     "description": "Dịch vụ và hoạt động hỗ trợ sinh viên."
+  },
+  {
+    "id": "diem-chuan",
+    "name": "Điểm chuẩn",
+    "description": "Điểm sàn, điểm chuẩn và điều kiện xét tuyển theo từng phương thức."
   }
 ]

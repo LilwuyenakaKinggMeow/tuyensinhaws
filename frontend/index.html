@@ -1,64 +1,279 @@
-
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDA Smart Assistant</title>
+    <title>UDA Smart Assistant - Đại học Đông Á</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="app">
+    <header class="topbar">
+        <a href="#" class="brand">
+            <div class="brand-logo">UDA</div>
+            <div class="brand-text">
+                <strong>UDA SMART ASSISTANT</strong>
+                <span>Cổng này là của Nguyên và Hoàng</span>
+            </div>
+        </a>
 
-    <aside class="sidebar">
-        <div class="brand">
-            <div class="logo">UDA</div>
+        <nav class="navigation">
+            <a href="#home" class="active">
+                <i data-lucide="house"></i>
+                <span>Trang chủ</span>
+            </a>
+
+            <a href="#admission">
+                <i data-lucide="graduation-cap"></i>
+                <span>Tuyển sinh</span>
+            </a>
+
+            <a href="#services">
+                <i data-lucide="book-open"></i>
+                <span>Đào tạo</span>
+            </a>
+
+            <a href="#student">
+                <i data-lucide="users"></i>
+                <span>Sinh viên</span>
+            </a>
+
+            <button onclick="openChat()">
+                <i data-lucide="message-circle"></i>
+                <span>Trợ lý AI</span>
+            </button>
+        </nav>
+
+        <div class="online-status" id="backendStatus">
+            <span class="status-dot"></span>
+            <span class="status-text">Đang kiểm tra...</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">ĐẠI HỌC ĐÔNG Á</span>
+
+                <h1>
+                    Xin chào!<br>
+                    Đồng hành cùng bạn<br>
+                    trên hành trình học tập tại <span>UDA</span>
+                </h1>
+
+                <p>
+                    Tra cứu thông tin tuyển sinh, học phí, ngành học
+                    và các dịch vụ sinh viên một cách nhanh chóng.
+                </p>
+
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+
+                    <input type="text" id="homeSearch"
+                        placeholder="Bạn muốn tìm hiểu gì? (Ví dụ: học phí, điểm chuẩn...)"
+                        onkeydown="if(event.key === 'Enter') searchHome()">
+
+                    <button onclick="searchHome()">
+                        Tìm kiếm
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-decoration">
+                <div class="hero-circle"></div>
+                <div class="hero-card">
+                    <div class="hero-card-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <strong>UDA Smart Assistant</strong>
+                    <p>Hỗ trợ thông tin học tập và tuyển sinh</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK SERVICES -->
+        <section class="section services-section" id="services">
+            <div class="section-heading">
+                <span class="eyebrow">KHÁM PHÁ UDA</span>
+                <h2>Bạn đang cần tìm hiểu thông tin gì?</h2>
+                <p>Lựa chọn chủ đề để tra cứu nhanh chóng.</p>
+            </div>
+
+            <div class="service-grid">
+
+                <!-- TUYỂN SINH -->
+                <button class="service-card admission-card" onclick="askUDA('Thông tin tuyển sinh')">
+                    <div class="service-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3>Tuyển sinh</h3>
+                        <p>Phương thức, điều kiện và hồ sơ xét tuyển.</p>
+                    </div>
+                    <span class="card-arrow">
+                        <i data-lucide="arrow-up-right"></i>
+                    </span>
+                </button>
+
+                <!-- HỌC PHÍ -->
+                <button class="service-card tuition-card" onclick="askUDA('Học phí')">
+                    <div class="service-icon">
+                        <i data-lucide="wallet"></i>
+                    </div>
+                    <div>
+                        <h3>Học phí</h3>
+                        <p>Tra cứu mức học phí theo từng ngành.</p>
+                    </div>
+                    <span class="card-arrow">
+                        <i data-lucide="arrow-up-right"></i>
+                    </span>
+                </button>
+
+                <!-- NGÀNH ĐÀO TẠO -->
+                <button class="service-card major-card" onclick="askUDA('Danh sách ngành đào tạo')">
+                    <div class="service-icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <div>
+                        <h3>Ngành đào tạo</h3>
+                        <p>Tìm hiểu ngành học và chương trình đào tạo.</p>
+                    </div>
+                    <span class="card-arrow">
+                        <i data-lucide="arrow-up-right"></i>
+                    </span>
+                </button>
+
+                <!-- HỌC VỤ -->
+                <button class="service-card academic-card" onclick="askUDA('Thông tin học vụ và quy chế tín chỉ')">
+                    <div class="service-icon">
+                        <i data-lucide="clipboard-list"></i>
+                    </div>
+                    <div>
+                        <h3>Thông tin học vụ</h3>
+                        <p>Tín chỉ, học phần và quy chế đào tạo.</p>
+                    </div>
+                    <span class="card-arrow">
+                        <i data-lucide="arrow-up-right"></i>
+                    </span>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section about-section" id="admission">
+            <div class="about-content">
+                <span class="eyebrow">CÙNG BẠN PHÁT TRIỂN</span>
+                <h2>Vì sao chọn Đại học Đông Á?</h2>
+                <p>
+                    Không chỉ cung cấp thông tin, UDA Smart Assistant
+                    còn giúp người học tiếp cận các nội dung cần thiết
+                    trong quá trình tìm hiểu và học tập tại trường.
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i data-lucide="award"></i>
+                        <strong>Chất lượng đào tạo</strong>
+                        <p>Chương trình học gắn với thực tiễn.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i data-lucide="users"></i>
+                        <strong>Đội ngũ giảng viên</strong>
+                        <p>Đồng hành trong quá trình học tập.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i data-lucide="building-2"></i>
+                        <strong>Môi trường học tập</strong>
+                        <p>Không gian học tập năng động.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i data-lucide="briefcase-business"></i>
+                        <strong>Cơ hội việc làm</strong>
+                        <p>Định hướng nghề nghiệp tương lai.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <i data-lucide="university"></i>
+                    <h3>Đại học Đông Á</h3>
+                    <p>Hoàng là của Nguyên – Nguyên là của Hoàng</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENT -->
+        <section class="student-section" id="student">
             <div>
-                <h2>Smart Assistant</h2>
-                <span>Đại học Đông Á</span>
+                <span class="eyebrow">HỖ TRỢ SINH VIÊN</span>
+                <h2>Luôn có trợ lý đồng hành cùng bạn</h2>
+                <p>
+                    Đặt câu hỏi để tìm kiếm thông tin về học vụ,
+                    chương trình đào tạo và các nội dung liên quan.
+                </p>
+            </div>
+
+            <button onclick="openChat()">
+                <i data-lucide="message-circle"></i>
+                Trò chuyện với trợ lý AI
+            </button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">
+            <div class="brand-logo">UDA</div>
+            <div>
+                <strong>ĐẠI HỌC ĐÔNG Á</strong>
+                <span>Hoàng là của Nguyên – Nguyên là của Hoàng</span>
             </div>
         </div>
 
-        <button class="new-chat" onclick="newChat()">
-            + Cuộc trò chuyện mới
-        </button>
+        <p>© 2026 UDA Smart Assistant. Thông tin mang tính tham khảo.</p>
+    </footer>
 
-        <div class="menu">
-            <p class="menu-title">HỖ TRỢ</p>
-            <button onclick="quickQuestion('Thông tin tuyển sinh')">
-                🎓 Tuyển sinh
-            </button>
-            <button onclick="quickQuestion('Học phí')">
-                💰 Học phí
-            </button>
-            <button onclick="quickQuestion('Ngành học')">
-                📚 Ngành đào tạo
-            </button>
-            <button onclick="quickQuestion('Tín chỉ')">
-                📋 Thông tin học vụ
-            </button>
-        </div>
+    <!-- FLOATING CHAT BUTTON -->
+    <button class="chat-launcher" id="chatLauncher" onclick="toggleChat()" aria-label="Mở trợ lý AI">
+        <i data-lucide="messages-square"></i>
+    </button>
 
-        <div class="sidebar-footer">
-            UDA Smart Assistant v1.0
-        </div>
-    </aside>
-
-    <main class="main">
-        <header class="header">
-            <div>
-                <h3>Trợ lý ảo UDA</h3>
-                <span>Hỗ trợ thông tin học vụ và tuyển sinh</span>
+    <!-- CHAT WINDOW -->
+    <section class="chat-window" id="chatWindow">
+        <header class="chat-header">
+            <div class="chat-brand">
+                <div class="chat-avatar">
+                    <i data-lucide="bot"></i>
+                </div>
+                <div>
+                    <strong>Trợ lý AI UDA</strong>
+                    <span><i></i> Sẵn sàng hỗ trợ</span>
+                </div>
             </div>
-            <div class="status">
-                <span class="dot"></span> Trực tuyến
+
+            <div class="chat-controls">
+                <button onclick="minimizeChat()" title="Thu nhỏ">−</button>
+                <button onclick="closeChat()" title="Đóng">×</button>
             </div>
         </header>
 
         <section class="chat-container" id="chatContainer">
             <div class="welcome" id="welcome">
-                <div class="welcome-icon">🎓</div>
+                <div class="welcome-icon">
+                    <i data-lucide="bot"></i>
+                </div>
                 <h1>Xin chào! Tôi có thể giúp gì cho bạn?</h1>
                 <p>
                     Hãy đặt câu hỏi về tuyển sinh, học phí,
@@ -67,16 +282,23 @@
 
                 <div class="suggestions">
                     <button onclick="quickQuestion('Thông tin tuyển sinh')">
+                        <i data-lucide="graduation-cap"></i>
                         Thông tin tuyển sinh
                     </button>
+
                     <button onclick="quickQuestion('Học phí')">
+                        <i data-lucide="wallet"></i>
                         Học phí
                     </button>
+
                     <button onclick="quickQuestion('Ngành học')">
+                        <i data-lucide="book-open"></i>
                         Ngành đào tạo
                     </button>
+
                     <button onclick="quickQuestion('Tín chỉ')">
-                        Quy chế tín chỉ
+                        <i data-lucide="clipboard-list"></i>
+                        Quy chế học vụ
                     </button>
                 </div>
             </div>
@@ -84,22 +306,18 @@
 
         <div class="input-area">
             <div class="input-box">
-                <input
-                    type="text"
-                    id="messageInput"
-                    placeholder="Nhập câu hỏi của bạn..."
-                    onkeydown="handleEnter(event)"
-                >
+                <input type="text" id="messageInput" placeholder="Nhập câu hỏi của bạn..."
+                    onkeydown="handleEnter(event)">
                 <button id="sendButton" onclick="sendMessage()">
-                    Gửi ↑
+                    <i data-lucide="send"></i>
                 </button>
             </div>
             <p>UDA Smart Assistant – Thông tin chỉ mang tính tham khảo.</p>
         </div>
-    </main>
+    </section>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="app.js"></script>
 
-</div>
-
-<script src="app.js"></script>
 </body>
+
 </html>

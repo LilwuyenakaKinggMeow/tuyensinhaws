@@ -23,6 +23,14 @@ app.get("/", (req, res) => {
 // Chat API
 app.use("/api/chat", chatRoutes);
 
+app.get("/api/health", (req, res) => {
+    res.status(200).json({
+        success: true,
+        status: "online",
+        message: "UDA Smart Assistant Backend is running"
+    });
+});
+
 // Xử lý route không tồn tại
 app.use((req, res) => {
     res.status(404).json({
