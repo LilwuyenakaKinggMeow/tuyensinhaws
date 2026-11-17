@@ -1,0 +1,67 @@
+
+
+/* Banner sinh viên */
+.admission-hero:has(.admission-hero-content) {
+    background:
+        radial-gradient(circle at 82% 30%, #cce7ff 0, transparent 32%),
+        linear-gradient(110deg, #f1f7ff, #e5f1ff 62%, #e0f5ed);
+}
+
+/* Danh mục sinh viên */
+#student-categories .major-card {
+    min-height: 190px;
+    padding: 24px;
+}
+
+#student-categories .major-card > svg {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 17px;
+}
+
+#student-categories .major-card h3 {
+    font-size: 14px;
+}
+
+/* Khu vực lưu ý bảo mật */
+.student-notice {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border: 1px solid #b9dfce;
+    border-radius: 13px;
+    background: #f0fbf5;
+    color: #176b4b;
+}
+
+.student-notice svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.student-notice p {
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    #student-categories .major-card {
+        min-height: 175px;
+        padding: 17px;
+    }
+
+    .student-notice {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    #student-categories .major-card {
+        min-height: 0;
+    }
+}

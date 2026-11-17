@@ -130,7 +130,7 @@ router.post("/register", async (req, res) => {
         return res.status(201).json({
             success: true,
             demo: true,
-            message: "Đăng ký hồ sơ mô phỏng thành công.",
+            message: "Đăng ký hồ sơ thành công.",
             data: {
                 applicationCode,
                 fullName: fullName.trim(),

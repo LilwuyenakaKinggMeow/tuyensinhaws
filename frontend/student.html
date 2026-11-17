@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thông tin sinh viên Đại học Đông Á – UDA Smart Assistant">
+  <title>Sinh viên | UDA Smart Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admission.css">
+  <link rel="stylesheet" href="student.css">
+  <link rel="icon" type="image/png"
+    href="https://donga.edu.vn/portals/0/article/Cover/hoa%20AD_07_08_2023_01_59_15.png">
+</head>
+
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-logo">
+        <img src="assets/uda-favicon.png" alt="Logo Đại học Đông Á">
+      </div>
+
+      <div class="brand-text">
+        <strong>UDA SMART ASSISTANT</strong>
+        <span>Cổng thông tin này là của Nguyên và Hoàng</span>
+      </div>
+    </a>
+
+    <nav class="navigation" aria-label="Điều hướng chính">
+      <a href="index.html">
+        <i data-lucide="house"></i>
+        <span>Trang chủ</span>
+      </a>
+
+      <a href="admission.html">
+        <i data-lucide="graduation-cap"></i>
+        <span>Tuyển sinh</span>
+      </a>
+
+      <a href="training.html">
+        <i data-lucide="book-open"></i>
+        <span>Đào tạo</span>
+      </a>
+
+      <a href="student.html" class="active">
+        <i data-lucide="users"></i>
+        <span>Sinh viên</span>
+      </a>
+
+      <button type="button" onclick="openChat()">
+        <i data-lucide="message-circle"></i>
+        <span>Trợ lý AI</span>
+      </button>
+    </nav>
+
+    <div class="online-status checking" id="backendStatus">
+      <span class="status-dot"></span>
+      <span class="status-text">Đang kiểm tra...</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- BANNER -->
+    <section class="admission-hero">
+      <div class="admission-hero-content">
+        <span class="eyebrow">ĐẠI HỌC ĐÔNG Á · CỔNG THÔNG TIN SINH VIÊN</span>
+
+        <h1>Đồng hành học tập<br><span>cùng UDA</span></h1>
+
+        <p>
+          Tổng hợp các thông tin học vụ, quy định, kết quả học tập
+          và những nội dung hỗ trợ dành cho sinh viên Đại học Đông Á.
+        </p>
+
+        <div class="admission-hero-actions">
+          <a class="admission-primary-btn" href="#student-categories">
+            Khám phá thông tin
+            <i data-lucide="arrow-down"></i>
+          </a>
+
+          <button class="admission-secondary-btn" type="button"
+            onclick="askUDA('Tôi muốn tìm hiểu các thông tin dành cho sinh viên Đại học Đông Á')">
+            <i data-lucide="message-circle"></i>
+            Hỏi trợ lý AI
+          </button>
+        </div>
+      </div>
+
+      <div class="admission-hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+
+        <div class="art-cap">
+          <i data-lucide="users"></i>
+        </div>
+
+        <div class="art-tag tag-one">
+          <i data-lucide="book-open-check"></i>
+          Hành trình học tập
+        </div>
+
+        <div class="art-tag tag-two">
+          <i data-lucide="graduation-cap"></i>
+          Phát triển tương lai
+        </div>
+      </div>
+    </section>
+
+    <!-- GIỚI THIỆU -->
+    <section class="admission-section">
+      <div class="admission-heading">
+        <span class="eyebrow">DÀNH CHO SINH VIÊN</span>
+        <h2>Thông tin và tiện ích sinh viên</h2>
+        <p>
+          Cung cấp các nội dung hỗ trợ sinh viên tìm hiểu quy định,
+          theo dõi quá trình học tập và tiếp cận các thông tin cần thiết
+          trong thời gian học tại trường.
+        </p>
+        <section class="student-intro-banner">
+          <img src="https://donga.edu.vn/Portals/0/suc-hut-nu-sinh-uda-2.jpg" alt="Hoạt động sinh viên Đại học Đông Á">
+        </section>
+      </div>
+    </section>
+
+    <!-- DANH MỤC SINH VIÊN -->
+    <section class="admission-section majors-section" id="student-categories">
+      <div class="admission-heading">
+        <span class="eyebrow">KHÁM PHÁ THÔNG TIN</span>
+        <h2>Các danh mục dành cho sinh viên</h2>
+        <p>
+          Lựa chọn nội dung bạn muốn tìm hiểu.
+          Thông tin chi tiết sẽ được cập nhật theo dữ liệu chính thức
+          của nhà trường.
+        </p>
+      </div>
+
+      <div class="major-grid">
+        <article class="major-card">
+          <i data-lucide="clipboard-list"></i>
+          <h3>Thông tin học vụ</h3>
+          <p>
+            Tìm hiểu các thủ tục, hướng dẫn và thông tin liên quan
+            đến quá trình học tập.
+          </p>
+        </article>
+
+        <article class="major-card">
+          <i data-lucide="file-check"></i>
+          <h3>Quy chế và quy định</h3>
+          <p>
+            Tham khảo các quy định học tập, rèn luyện
+            và những yêu cầu dành cho sinh viên.
+          </p>
+        </article>
+
+        <article class="major-card">
+          <i data-lucide="chart-no-axes-column-increasing"></i>
+          <h3>Kết quả học tập</h3>
+          <p>
+            Tìm hiểu thông tin về điểm số, kết quả học tập
+            và các quy định đánh giá.
+          </p>
+        </article>
+
+        <article class="major-card">
+          <i data-lucide="calendar-days"></i>
+          <h3>Lịch học và lịch thi</h3>
+          <p>
+            Tham khảo các thông báo liên quan đến lịch học,
+            lịch thi và kế hoạch học tập.
+          </p>
+        </article>
+
+        <article class="major-card">
+          <i data-lucide="wallet"></i>
+          <h3>Học phí và tài chính</h3>
+          <p>
+            Tìm hiểu thông tin học phí, các khoản thu
+            và hướng dẫn thanh toán.
+          </p>
+        </article>
+
+        <article class="major-card">
+          <i data-lucide="heart-handshake"></i>
+          <h3>Hỗ trợ sinh viên</h3>
+          <p>
+            Tìm hiểu các kênh liên hệ, hỗ trợ và giải đáp
+            những vấn đề trong quá trình học tập.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LƯU Ý TRA CỨU -->
+    <section class="admission-section">
+      <div class="admission-heading">
+        <span class="eyebrow">LƯU Ý</span>
+        <h2>Tra cứu thông tin cá nhân</h2>
+        <p>
+          Các thông tin như điểm số, kết quả học tập và hồ sơ cá nhân
+          cần được truy cập thông qua hệ thống chính thức có xác thực
+          tài khoản sinh viên.
+        </p>
+      </div>
+
+      <div class="demo-warning">
+        <i data-lucide="shield-check"></i>
+        <p>
+          <strong>Bảo mật thông tin:</strong>
+          UDA Smart Assistant hiện hỗ trợ tra cứu thông tin chung.
+          Trang này chưa kết nối hệ thống tài khoản sinh viên để truy xuất
+          điểm số hoặc dữ liệu cá nhân.
+        </p>
+      </div>
+    </section>
+
+    <!-- HỖ TRỢ -->
+    <section class="admission-cta">
+      <div>
+        <span class="eyebrow">UDA SMART ASSISTANT</span>
+        <h2>Bạn cần hỗ trợ trong quá trình học tập?</h2>
+        <p>
+          Đặt câu hỏi cho trợ lý AI để tìm hiểu các thông tin học vụ,
+          quy định và hỗ trợ sinh viên hiện có trong hệ thống.
+        </p>
+      </div>
+
+      <button type="button" onclick="askUDA('Tôi cần hỗ trợ thông tin học vụ dành cho sinh viên Đại học Đông Á')">
+        <i data-lucide="message-circle"></i>
+        Trò chuyện với trợ lý AI
+      </button>
+    </section>
+
+    <!-- NGUỒN THÔNG TIN -->
+    <section class="official-links">
+      <div>
+        <span class="eyebrow">NGUỒN THÔNG TIN</span>
+        <h2>Tra cứu tại website chính thức</h2>
+        <p>
+          Tham khảo và đối chiếu các thông tin dành cho sinh viên
+          từ nhà trường.
+        </p>
+      </div>
+
+      <div class="official-link-list">
+        <a href="https://donga.edu.vn/" target="_blank" rel="noopener">
+          Website Đại học Đông Á
+          <i data-lucide="external-link"></i>
+        </a>
+
+        <a href="https://donga.edu.vn/" target="_blank" rel="noopener">
+          Cổng thông tin nhà trường
+          <i data-lucide="external-link"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <div class="brand-logo">UDA</div>
+      <div>
+        <strong>UDA SMART ASSISTANT</strong>
+        <span>Hoàng là của Nguyên – Nguyên là của Hoàng</span>
+      </div>
+    </div>
+
+    <p>© 2026 UDA Smart Assistant.</p>
+  </footer>
+
+  <!-- CHATBOT -->
+  <button class="chat-launcher" id="chatLauncher" onclick="toggleChat()" aria-label="Mở trợ lý AI">
+    <i data-lucide="messages-square"></i>
+  </button>
+
+  <section class="chat-window" id="chatWindow" aria-label="Trợ lý AI UDA">
+    <header class="chat-header">
+      <div class="chat-brand">
+        <div class="chat-avatar">
+          <i data-lucide="bot"></i>
+        </div>
+
+        <div>
+          <strong>Trợ lý AI UDA</strong>
+          <span><i></i> Sẵn sàng hỗ trợ</span>
+        </div>
+      </div>
+
+      <div class="chat-controls">
+        <button onclick="minimizeChat()" title="Thu nhỏ">−</button>
+        <button onclick="closeChat()" title="Đóng">×</button>
+      </div>
+    </header>
+
+    <section class="chat-container" id="chatContainer">
+      <div class="welcome" id="welcome">
+        <div class="welcome-icon">
+          <i data-lucide="bot"></i>
+        </div>
+
+        <h1>Xin chào! Tôi có thể giúp gì cho bạn?</h1>
+
+        <p>
+          Hãy đặt câu hỏi về học vụ, quy chế, điểm số,
+          học phí hoặc các thông tin sinh viên tại UDA.
+        </p>
+
+        <div class="suggestions">
+          <button onclick="quickQuestion('Thông tin học vụ')">
+            <i data-lucide="clipboard-list"></i>
+            Thông tin học vụ
+          </button>
+
+          <button onclick="quickQuestion('Quy chế học tập')">
+            <i data-lucide="file-check"></i>
+            Quy chế học tập
+          </button>
+
+          <button onclick="quickQuestion('Cách tính điểm học tập')">
+            <i data-lucide="chart-no-axes-column-increasing"></i>
+            Cách tính điểm
+          </button>
+
+          <button onclick="quickQuestion('Thông tin học phí')">
+            <i data-lucide="wallet"></i>
+            Học phí
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="input-area">
+      <div class="input-box">
+        <input type="text" id="messageInput" placeholder="Nhập câu hỏi của bạn..." onkeydown="handleEnter(event)">
+
+        <button id="sendButton" onclick="sendMessage()">
+          <i data-lucide="send"></i>
+        </button>
+      </div>
+
+      <p>UDA Smart Assistant.</p>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

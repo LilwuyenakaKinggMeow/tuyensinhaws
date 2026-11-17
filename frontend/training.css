@@ -1,0 +1,43 @@
+
+
+/* Banner đào tạo */
+.admission-hero:has(.admission-hero-content) {
+    background:
+        radial-gradient(circle at 82% 30%, #cce7ff 0, transparent 32%),
+        linear-gradient(110deg, #f1f7ff, #e5f1ff 62%, #dff3ec);
+}
+
+/* Các danh mục đào tạo */
+#training-categories .major-card {
+    min-height: 190px;
+    padding: 24px;
+}
+
+#training-categories .major-card > svg {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 17px;
+}
+
+#training-categories .major-card h3 {
+    font-size: 14px;
+}
+
+/* Giới thiệu */
+.admission-section:not(.majors-section) .admission-heading {
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    #training-categories .major-card {
+        min-height: 175px;
+        padding: 17px;
+    }
+}
+
+@media (max-width: 380px) {
+    #training-categories .major-card {
+        min-height: 0;
+    }
+}

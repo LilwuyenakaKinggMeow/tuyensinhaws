@@ -12,23 +12,30 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="admission.css">
+  <link rel="icon" type="image/png"
+    href="https://donga.edu.vn/portals/0/article/Cover/hoa%20AD_07_08_2023_01_59_15.png">
 </head>
 
 <body>
   <header class="topbar">
+
     <a href="index.html" class="brand">
-      <div class="brand-logo">UDA</div>
+      <div class="brand-logo">
+        <img src="assets/uda-favicon.png" alt="Logo Đại học Đông Á">
+      </div>
+
       <div class="brand-text">
         <strong>UDA SMART ASSISTANT</strong>
-        <span>Cổng thông tin hỗ trợ học tập và tuyển sinh</span>
+        <span>Cổng thông tin này là của Nguyên và Hoàng</span>
       </div>
     </a>
+
 
     <nav class="navigation" aria-label="Điều hướng chính">
       <a href="index.html"><i data-lucide="house"></i><span>Trang chủ</span></a>
       <a href="admission.html" class="active"><i data-lucide="graduation-cap"></i><span>Tuyển sinh</span></a>
-      <a href="index.html#services"><i data-lucide="book-open"></i><span>Đào tạo</span></a>
-      <a href="index.html#student"><i data-lucide="users"></i><span>Sinh viên</span></a>
+      <a href="training.html"><i data-lucide="book-open"></i><span>Đào tạo</span></a>
+      <a href="student.html"><i data-lucide="users"></i><span>Sinh viên</span></a>
       <button type="button" onclick="openChat()"><i data-lucide="message-circle"></i><span>Trợ lý AI</span></button>
     </nav>
 
@@ -100,7 +107,7 @@
           <form id="admissionForm">
             <div class="form-field">
               <label for="appFullName">Họ và tên <span>*</span></label>
-              <input id="appFullName" name="fullName" type="text" maxlength="100" placeholder="Nguyễn Văn A" required>
+              <input id="appFullName" name="fullName" type="text" maxlength="100" placeholder="Tran Van Nguyehoang" required>
             </div>
 
             <div class="form-row">
@@ -376,9 +383,9 @@
   <footer class="footer">
     <div class="footer-brand">
       <div class="brand-logo">UDA</div>
-      <div><strong>UDA SMART ASSISTANT</strong><span>Trợ lý hỗ trợ tra cứu thông tin học vụ và tuyển sinh</span></div>
+      <div><strong>UDA SMART ASSISTANT</strong><span>Hoàng là của Nguyên – Nguyên là của Hoàng</span></div>
     </div>
-    <p>© 2026 UDA Smart Assistant. Thông tin mang tính tham khảo.</p>
+    <p>© 2026 UDA Smart Assistant.</p>
   </footer>
 
   <button class="chat-launcher" id="chatLauncher" onclick="toggleChat()" aria-label="Mở trợ lý AI"><i
@@ -411,7 +418,7 @@
       <div class="input-box"><input type="text" id="messageInput" placeholder="Nhập câu hỏi của bạn..."
           onkeydown="handleEnter(event)"><button id="sendButton" onclick="sendMessage()"><i
             data-lucide="send"></i></button></div>
-      <p>UDA Smart Assistant – Thông tin chỉ mang tính tham khảo.</p>
+      <p>UDA Smart Assistant.</p>
     </div>
   </section>
 

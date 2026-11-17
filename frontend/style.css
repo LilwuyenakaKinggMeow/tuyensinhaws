@@ -1515,3 +1515,607 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   20. GREEN & WHITE - UDA DESIGN UPGRADE
+======================================== */
+
+:root {
+    --navy: #145638;
+    --navy-dark: #0d4029;
+    --blue: #198754;
+    --blue-light: #eaf6ef;
+    --green: #198754;
+
+    --text: #183b2b;
+    --muted: #64776c;
+    --border: #dcebe1;
+
+    --white: #ffffff;
+    --background: #f7fbf8;
+
+    --shadow-sm: 0 4px 15px rgba(20, 86, 56, .06);
+    --shadow-md: 0 12px 30px rgba(20, 86, 56, .10);
+    --shadow-lg: 0 18px 45px rgba(20, 86, 56, .15);
+}
+
+/* HEADER */
+
+.topbar {
+    background: #ffffff;
+    color: var(--text);
+    border-bottom: 1px solid #e5eee8;
+    box-shadow: 0 4px 20px rgba(20, 86, 56, .05);
+}
+
+.brand {
+    color: var(--text);
+}
+
+.brand-logo {
+    background: #198754;
+    color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 5px 14px rgba(25, 135, 84, .2);
+}
+
+.brand-text span {
+    color: #718477;
+}
+
+.navigation a,
+.navigation button {
+    color: #496354;
+}
+
+.navigation a:hover,
+.navigation button:hover {
+    background: #edf7f0;
+    color: #198754;
+}
+
+.navigation .active,
+.navigation .active:hover {
+    background: #198754;
+    color: #ffffff;
+    box-shadow: 0 5px 14px rgba(25, 135, 84, .2);
+}
+
+.online-status {
+    background: #edf7f0;
+}
+
+/* HERO BANNER */
+
+.hero {
+    min-height: 490px;
+    padding: 75px 7%;
+
+    background:
+        radial-gradient(circle at 82% 25%, rgba(126, 196, 145, .27), transparent 28%),
+        radial-gradient(circle at 100% 100%, rgba(25, 135, 84, .12), transparent 35%),
+        linear-gradient(115deg, #f7fcf8 0%, #eaf6ed 55%, #d9efdf 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    right: 3%;
+    top: 30px;
+    border: 1px solid rgba(25, 135, 84, .12);
+    border-radius: 50%;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    right: 7%;
+    top: 85px;
+    border: 1px solid rgba(25, 135, 84, .15);
+    border-radius: 50%;
+}
+
+.hero h1 {
+    color: #145638;
+}
+
+.hero h1 span {
+    color: #198754;
+}
+
+.hero-content > p {
+    color: #607568;
+}
+
+.eyebrow {
+    color: #198754;
+}
+
+/* HERO DECORATION */
+
+.hero-decoration {
+    z-index: 2;
+}
+
+.hero-circle {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #b9e4c5, #71bf8c);
+    opacity: .65;
+}
+
+.hero-card {
+    border: 1px solid rgba(25, 135, 84, .10);
+    box-shadow: 0 20px 50px rgba(20, 86, 56, .16);
+}
+
+.hero-card-icon {
+    background: #e5f5e9;
+    color: #198754;
+}
+
+/* SEARCH */
+
+.search-box {
+    border-color: #cfe4d5;
+    box-shadow: 0 10px 30px rgba(20, 86, 56, .08);
+}
+
+.search-box:focus-within {
+    border-color: #198754;
+    box-shadow: 0 0 0 4px rgba(25, 135, 84, .09);
+}
+
+.search-box > svg {
+    color: #198754;
+}
+
+.search-box button {
+    background: #198754;
+}
+
+.search-box button:hover {
+    background: #126b41;
+}
+
+/* SECTION HEADING */
+
+.section-heading h2,
+.about-content h2 {
+    color: #145638;
+}
+
+/* SERVICE CARDS */
+
+.admission-card,
+.tuition-card,
+.major-card,
+.academic-card {
+    background: #ffffff;
+    border: 1px solid #e1eee5;
+}
+
+.service-card:hover {
+    border-color: #9bceaa;
+    box-shadow: 0 14px 32px rgba(20, 86, 56, .10);
+}
+
+.service-icon {
+    background: #eaf6ed;
+    color: #198754;
+}
+
+.card-arrow {
+    color: #198754;
+}
+
+/* ABOUT */
+
+.about-section {
+    background: #f3f9f4;
+}
+
+.feature-item {
+    border-color: #e1eee5;
+    box-shadow: 0 3px 12px rgba(20, 86, 56, .03);
+    transition: .25s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-4px);
+    border-color: #a8d5b5;
+    box-shadow: var(--shadow-md);
+}
+
+.feature-item > svg {
+    color: #198754;
+}
+
+.about-image {
+    background:
+        radial-gradient(circle at 70% 25%, rgba(255,255,255,.8), transparent 25%),
+        linear-gradient(135deg, #d9efdf, #a9d9b5 55%, #73bb89);
+}
+
+.image-placeholder > svg {
+    color: #176b45;
+}
+
+/* STUDENT CTA */
+
+.student-section {
+    background: linear-gradient(115deg, #145638, #198754);
+    box-shadow: 0 12px 30px rgba(20, 86, 56, .15);
+}
+
+.student-section .eyebrow {
+    color: #b9edca;
+}
+
+.student-section button {
+    background: #ffffff;
+    color: #176b45;
+}
+
+.student-section button:hover {
+    background: #eaf6ed;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #0d4029;
+}
+
+.footer .brand-logo {
+    background: #ffffff;
+    color: #145638;
+}
+
+/* CHAT */
+
+.chat-launcher {
+    background: #198754;
+    box-shadow: 0 7px 22px rgba(25, 135, 84, .30);
+}
+
+.chat-launcher:hover {
+    background: #126b41;
+}
+
+.chat-header {
+    background: linear-gradient(110deg, #145638, #198754);
+}
+
+.chat-avatar {
+    color: #198754;
+}
+
+.welcome-icon {
+    background: #eaf6ed;
+    color: #198754;
+}
+
+.suggestions button:hover {
+    border-color: #198754;
+    color: #176b45;
+    background: #f0f8f2;
+}
+
+.suggestions button svg {
+    color: #198754;
+}
+
+.user .bubble {
+    background: #198754;
+}
+
+.input-box:focus-within {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, .08);
+}
+
+.input-box button {
+    background: #198754;
+}
+
+.input-box button:hover {
+    background: #145638;
+}
+
+.markdown-content a {
+    color: #198754;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .hero {
+        background:
+            radial-gradient(circle at 90% 10%, rgba(126, 196, 145, .22), transparent 35%),
+            linear-gradient(135deg, #f7fcf8, #eaf6ed);
+    }
+
+    .hero::before,
+    .hero::after {
+        display: none;
+    }
+}
+
+/* =========================================
+   21. UDA HERO BANNER
+========================================= */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 45px;
+    min-height: 540px;
+    padding: 75px 7%;
+    background: linear-gradient(135deg, #f3fbf6 0%, #e4f5eb 100%);
+    overflow: hidden;
+}
+
+/* Nội dung bên trái */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-content .eyebrow {
+    display: inline-block;
+    color: #16834a;
+    background: #dff3e7;
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 22px;
+}
+
+.hero-content h1 {
+    color: #173c2a;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.25;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.hero-content h1 span {
+    color: #159451;
+}
+
+.hero-content > p {
+    color: #607568;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 28px;
+}
+
+/* Ô tìm kiếm */
+.hero .search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 540px;
+    min-height: 60px;
+    padding: 7px;
+    background: #ffffff;
+    border: 1px solid #dcebe1;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(25, 100, 58, 0.08);
+}
+
+.hero .search-box > i {
+    color: #159451;
+    margin: 0 12px;
+    flex-shrink: 0;
+}
+
+.hero .search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #254735;
+    font-size: 14px;
+}
+
+.hero .search-box button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #16834a;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.hero .search-box button:hover {
+    background: #106b3b;
+    transform: translateY(-2px);
+}
+
+/* Nút đăng ký */
+.hero-admission-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 14px 23px;
+    border: 2px solid #16834a;
+    border-radius: 10px;
+    color: #16834a;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.hero-admission-btn:hover {
+    background: #16834a;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Ảnh banner bên phải */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(24, 83, 49, 0.16);
+}
+
+.hero-banner img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.hero-banner:hover img {
+    transform: scale(1.035);
+}
+
+/* Ẩn trang trí cũ */
+.hero-decoration {
+    display: none;
+}
+
+/* Responsive tablet */
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 60px 6%;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .hero-banner img {
+        height: 350px;
+    }
+}
+
+/* Responsive điện thoại */
+@media (max-width: 576px) {
+    .hero {
+        padding: 45px 5%;
+        gap: 28px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-content > p {
+        font-size: 14px;
+    }
+
+    .hero .search-box {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .hero .search-box input {
+        font-size: 12px;
+    }
+
+    .hero .search-box button {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .hero-banner {
+        border-radius: 14px;
+    }
+
+    .hero-banner img {
+        height: 220px;
+    }
+
+    .hero-admission-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Logo hình ảnh trên thanh điều hướng */
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+/* Ảnh minh họa phần giới thiệu đào tạo */
+.training-intro-banner {
+    width: 100%;
+    max-width: 1100px;
+    margin: 35px auto 45px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.training-intro-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 18px;
+    transition: transform 0.4s ease;
+}
+
+.training-intro-banner:hover img {
+    transform: scale(1.02);
+}
+/* Ảnh minh họa phần giới thiệu sinh viên */
+.student-intro-banner {
+    width: 100%;
+    max-width: 1100px;
+    margin: 35px auto 45px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.student-intro-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 18px;
+    transition: transform 0.4s ease;
+}
+
+.student-intro-banner:hover img {
+    transform: scale(1.02);
+}
