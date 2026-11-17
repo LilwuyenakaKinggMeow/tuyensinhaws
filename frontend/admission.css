@@ -1,0 +1,406 @@
+/* UDA Smart Assistant - Admission page */
+.admission-hero {
+  min-height: 440px; padding: 68px 7%; display: grid; grid-template-columns: 1.15fr .85fr;
+  align-items: center; gap: 35px; overflow: hidden; position: relative;
+  background: radial-gradient(circle at 82% 30%, #cce7ff 0, transparent 32%), linear-gradient(110deg,#f4f9ff,#e5f1ff 62%,#dff3ec);
+}
+.admission-hero-content { max-width: 700px; position: relative; z-index: 2; }
+.admission-hero h1 { margin: 17px 0; color: var(--navy); font-size: clamp(38px,5vw,58px); line-height: 1.13; letter-spacing: -2px; }
+.admission-hero h1 span { color: var(--green); }
+.admission-hero-content > p { max-width: 600px; color: #53657d; font-size: 15px; line-height: 1.8; }
+.admission-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.admission-primary-btn,.admission-secondary-btn,.admission-outline-btn {
+  min-height: 46px; padding: 12px 18px; display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  border-radius: 28px; font: 600 13px 'Be Vietnam Pro',sans-serif; text-decoration: none; cursor: pointer; transition: .2s ease;
+}
+.admission-primary-btn { background: var(--navy); color: white; border: 1px solid var(--navy); }
+.admission-primary-btn:hover { background: var(--green); border-color: var(--green); transform: translateY(-2px); }
+.admission-secondary-btn { background: white; color: var(--navy); border: 1px solid #d6e1ef; }
+.admission-secondary-btn:hover,.admission-outline-btn:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+.admission-note { margin-top: 23px; display: flex; gap: 9px; align-items: flex-start; color: #64748b; font-size: 11px; line-height: 1.6; max-width: 650px; }
+.admission-note svg { width: 17px; height: 17px; color: var(--blue); flex-shrink: 0; }
+.admission-hero-art { height: 330px; position: relative; display: grid; place-items: center; }
+.art-orbit { position: absolute; border: 1px solid rgba(21,86,165,.18); border-radius: 50%; }
+.orbit-one { width: 300px; height: 300px; }
+.orbit-two { width: 235px; height: 235px; border-style: dashed; }
+.art-cap { width: 150px; height: 150px; display: grid; place-items: center; border-radius: 42px; background: white; color: var(--blue); box-shadow: 0 20px 60px rgba(16,44,84,.16); transform: rotate(-8deg); }
+.art-cap svg { width: 78px; height: 78px; stroke-width: 1.3; }
+.art-tag { position: absolute; padding: 12px 15px; display: flex; gap: 8px; align-items: center; background: white; border-radius: 12px; color: var(--navy); font-size: 11px; font-weight: 700; box-shadow: var(--shadow-md); }
+.art-tag svg { color: var(--green); width: 17px; height: 17px; }
+.tag-one { top: 40px; right: 0; } .tag-two { bottom: 42px; left: 0; }
+.admission-stats { margin: -1px 7% 0; padding: 23px 28px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; border: 1px solid var(--border); border-radius: 16px; background: white; box-shadow: var(--shadow-sm); position: relative; z-index: 3; }
+.admission-stats > div { display: flex; align-items: center; gap: 14px; }
+.admission-stats strong { color: var(--green); font-size: 31px; line-height: 1; }
+.admission-stats span { color: var(--muted); font-size: 11px; line-height: 1.55; }
+.admission-section { padding: 75px 7%; }
+.admission-heading { max-width: 760px; margin: 0 auto 36px; text-align: center; }
+.admission-heading h2,.official-links h2 { margin: 12px 0; color: var(--navy); font-size: clamp(23px,3vw,31px); letter-spacing: -.7px; }
+.admission-heading p,.official-links p { color: var(--muted); font-size: 13px; line-height: 1.75; }
+.method-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; }
+.method-card { min-height: 215px; padding: 23px; position: relative; border: 1px solid var(--border); border-radius: 16px; background: white; box-shadow: var(--shadow-sm); transition: .2s ease; }
+.method-card:hover,.major-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.method-number { position: absolute; top: 17px; right: 19px; color: #d8e3f0; font-size: 26px; font-weight: 800; }
+.method-icon { width: 47px; height: 47px; display: grid; place-items: center; border-radius: 13px; background: #eaf2ff; color: var(--blue); }
+.method-icon svg { width: 24px; height: 24px; }
+.method-card h3 { margin: 17px 0 8px; color: var(--navy); font-size: 15px; }
+.method-card p,.major-card p { color: var(--muted); font-size: 12px; line-height: 1.7; }
+.section-source { margin-top: 20px; color: var(--muted); font-size: 11px; text-align: center; }
+.section-source a { color: var(--blue); }
+.majors-section { background: #f8fafc; }
+.major-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; }
+.major-card { min-height: 175px; padding: 20px; border: 1px solid var(--border); border-radius: 15px; background: white; transition: .2s ease; }
+.major-card > svg { width: 27px; height: 27px; margin-bottom: 14px; color: var(--green); }
+.major-card h3 { margin-bottom: 8px; color: var(--navy); font-size: 13px; line-height: 1.5; }
+.major-actions { margin-top: 25px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.admission-outline-btn { background: white; color: var(--navy); border: 1px solid #d4dfeb; }
+.process-list { max-width: 850px; margin: auto; display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; }
+.process-item { padding: 22px; display: flex; align-items: flex-start; gap: 16px; border: 1px solid var(--border); border-radius: 14px; background: white; }
+.process-item > span { width: 39px; height: 39px; display: grid; place-items: center; flex-shrink: 0; border-radius: 12px; background: #e5f7ef; color: var(--green); font-weight: 800; }
+.process-item h3 { margin: 2px 0 7px; color: var(--navy); font-size: 14px; }
+.process-item p { color: var(--muted); font-size: 12px; line-height: 1.7; }
+.admission-cta { margin: 0 7% 35px; padding: 32px 38px; display: flex; align-items: center; justify-content: space-between; gap: 25px; border-radius: 18px; background: var(--navy); color: white; }
+.admission-cta h2 { margin: 9px 0; font-size: 23px; }
+.admission-cta p { color: #c7d6e9; font-size: 12px; line-height: 1.7; }
+.admission-cta button { padding: 14px 20px; display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0; border: 0; border-radius: 28px; background: var(--green); color: white; font: 600 12px 'Be Vietnam Pro',sans-serif; cursor: pointer; }
+.admission-cta button:hover { background: #08aa7d; }
+.faq-section { background: #f8fafc; }
+.faq-list { max-width: 850px; margin: auto; display: grid; gap: 10px; }
+.faq-list details { padding: 17px 20px; border: 1px solid var(--border); border-radius: 12px; background: white; }
+.faq-list summary { color: var(--navy); font-size: 13px; font-weight: 700; cursor: pointer; }
+.faq-list details p { padding-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.75; }
+.official-links { padding: 45px 7%; display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; }
+.official-link-list { display: grid; gap: 9px; }
+.official-link-list a { padding: 13px 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px; border: 1px solid var(--border); border-radius: 10px; color: var(--blue); text-decoration: none; font-size: 12px; font-weight: 600; }
+.official-link-list a:hover { border-color: var(--green); color: var(--green); }
+.official-link-list svg { width: 16px; height: 16px; flex-shrink: 0; }
+@media(max-width:1000px) {
+  .admission-hero { padding: 55px 5%; grid-template-columns: 1fr .7fr; }
+  .admission-section { padding: 60px 5%; }
+  .major-grid { grid-template-columns: repeat(3,1fr); }
+  .admission-stats { margin-left: 5%; margin-right: 5%; }
+}
+@media(max-width:700px) {
+  .admission-hero { min-height: 0; padding: 48px 22px; grid-template-columns: 1fr; }
+  .admission-hero h1 { font-size: 39px; }
+  .admission-hero-art { display: none; }
+  .admission-stats { margin: 0 18px; padding: 20px; grid-template-columns: 1fr; gap: 17px; }
+  .admission-stats strong { min-width: 58px; }
+  .admission-section { padding: 48px 20px; }
+  .method-grid { grid-template-columns: 1fr; }
+  .method-card { min-height: 0; }
+  .major-grid { grid-template-columns: repeat(2,1fr); }
+  .process-list { grid-template-columns: 1fr; }
+  .admission-cta { margin: 0 20px 25px; padding: 25px; align-items: flex-start; flex-direction: column; }
+  .admission-cta button { width: 100%; justify-content: center; }
+  .official-links { padding: 40px 20px; grid-template-columns: 1fr; gap: 20px; }
+}
+@media(max-width:380px) { .major-grid { grid-template-columns: 1fr; } .admission-hero h1 { font-size: 33px; } }
+
+/* ========================================
+   ADMISSION APPLICATION - DEMO
+======================================== */
+
+.application-section {
+  background: #f8fafc;
+}
+
+.demo-warning {
+  max-width: 1000px;
+  margin: -10px auto 28px;
+  padding: 15px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid #f1d9a8;
+  border-radius: 12px;
+  background: #fffaf0;
+  color: #805b19;
+}
+
+.demo-warning svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.demo-warning p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.application-grid {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: start;
+  gap: 20px;
+}
+
+.application-card {
+  min-width: 0;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.application-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 24px;
+}
+
+.application-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #eaf2ff;
+  color: var(--blue);
+}
+
+.application-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.lookup-icon {
+  background: #e5f7ef;
+  color: var(--green);
+}
+
+.application-card-heading h3 {
+  margin-bottom: 5px;
+  color: var(--navy);
+  font-size: 16px;
+}
+
+.application-card-heading p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.form-field {
+  min-width: 0;
+  margin-bottom: 17px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.form-field label span {
+  color: #dc5151;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 1px solid #dbe3ed;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: var(--navy);
+  font: 400 12px 'Be Vietnam Pro', sans-serif;
+  transition: .2s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, .09);
+}
+
+.form-field input::placeholder {
+  color: #a0aaba;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.field-hint {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.application-submit {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--navy);
+  color: white;
+  font: 600 12px 'Be Vietnam Pro', sans-serif;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.application-submit:hover {
+  background: var(--green);
+  transform: translateY(-1px);
+}
+
+.application-submit:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.application-submit svg {
+  width: 17px;
+  height: 17px;
+}
+
+.lookup-submit {
+  margin-top: 5px;
+}
+
+.application-result,
+.lookup-result {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #b9e6d2;
+  border-radius: 11px;
+  background: #f0fbf5;
+  color: #176b4b;
+  font-size: 12px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.application-result.error,
+.lookup-result.error {
+  border-color: #f2caca;
+  background: #fff5f5;
+  color: #a53e3e;
+}
+
+.result-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+  font-weight: 800;
+}
+
+.result-title svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.result-code {
+  display: inline-block;
+  margin: 6px 0;
+  padding: 7px 10px;
+  border: 1px dashed #80c8a7;
+  border-radius: 7px;
+  background: white;
+  color: #145b40;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .4px;
+}
+
+.lookup-result dl {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.lookup-result dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dcefe5;
+}
+
+.lookup-result dt {
+  color: #547264;
+}
+
+.lookup-result dd {
+  margin: 0;
+  color: #164c38;
+  font-weight: 700;
+  text-align: right;
+}
+
+.lookup-guide {
+  margin-top: 24px;
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 10px;
+  background: #f4f7fb;
+  color: var(--muted);
+}
+
+.lookup-guide svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--blue);
+}
+
+.lookup-guide p {
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media(max-width:800px) {
+  .application-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:500px) {
+  .application-card {
+    padding: 19px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .demo-warning {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .lookup-result dl div {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .lookup-result dd {
+    text-align: left;
+  }
+}

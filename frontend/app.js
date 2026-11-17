@@ -1,5 +1,9 @@
 
-const API_URL = "http://localhost:3000/api/chat";
+const API_BASE = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+    ? "http://localhost:3000/api"
+    : "/api";
+
+const API_URL = `${API_BASE}/chat`;
 
 const chatContainer = document.getElementById("chatContainer");
 const messageInput = document.getElementById("messageInput");
@@ -391,7 +395,7 @@ async function checkBackendStatus() {
     textElement.textContent = "Đang kiểm tra...";
 
     try {
-        const response = await fetch("http://localhost:3000/api/health", {
+        const response = await fetch(`${API_BASE}/health`, {
             method: "GET",
             cache: "no-store"
         });

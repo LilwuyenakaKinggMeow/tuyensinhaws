@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thông tin tuyển sinh Đại học Đông Á – UDA Smart Assistant">
+  <title>Tuyển sinh | UDA Smart Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admission.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-logo">UDA</div>
+      <div class="brand-text">
+        <strong>UDA SMART ASSISTANT</strong>
+        <span>Cổng thông tin hỗ trợ học tập và tuyển sinh</span>
+      </div>
+    </a>
+
+    <nav class="navigation" aria-label="Điều hướng chính">
+      <a href="index.html"><i data-lucide="house"></i><span>Trang chủ</span></a>
+      <a href="admission.html" class="active"><i data-lucide="graduation-cap"></i><span>Tuyển sinh</span></a>
+      <a href="index.html#services"><i data-lucide="book-open"></i><span>Đào tạo</span></a>
+      <a href="index.html#student"><i data-lucide="users"></i><span>Sinh viên</span></a>
+      <button type="button" onclick="openChat()"><i data-lucide="message-circle"></i><span>Trợ lý AI</span></button>
+    </nav>
+
+    <div class="online-status checking" id="backendStatus">
+      <span class="status-dot"></span><span class="status-text">Đang kiểm tra...</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="admission-hero">
+      <div class="admission-hero-content">
+        <span class="eyebrow">ĐẠI HỌC ĐÔNG Á · THÔNG TIN TUYỂN SINH</span>
+        <h1>Mở lối tương lai<br><span>cùng UDA</span></h1>
+        <p>Tìm hiểu phương thức xét tuyển, ngành đào tạo và những thông tin cần biết trước khi lựa chọn môi trường đại
+          học.</p>
+        <div class="admission-hero-actions">
+          <a class="admission-primary-btn" href="#application">
+            Đăng ký / Tra cứu hồ sơ
+            <i data-lucide="arrow-down"></i>
+          </a>
+
+          <button class="admission-secondary-btn" type="button"
+            onclick="askUDA('Tôi muốn tìm hiểu thông tin tuyển sinh Đại học Đông Á')">
+            <i data-lucide="message-circle"></i> Hỏi trợ lý AI
+          </button>
+        </div>
+        <div class="admission-note"><i data-lucide="info"></i> Trang đang trình bày dữ liệu tham khảo kỳ tuyển sinh 2026
+          đã qua. Hãy xem thông báo mới nhất của trường để biết kế hoạch kỳ tiếp theo.</div>
+      </div>
+      <div class="admission-hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-cap"><i data-lucide="graduation-cap"></i></div>
+        <div class="art-tag tag-one"><i data-lucide="book-open-check"></i> Chọn ngành phù hợp</div>
+        <div class="art-tag tag-two"><i data-lucide="target"></i> Định hướng tương lai</div>
+      </div>
+    </section>
+
+    <section class="admission-stats" aria-label="Thông tin tuyển sinh nổi bật">
+      <div><strong>40+</strong><span>Ngành đại học chính quy được giới thiệu trên cổng tuyển sinh 2026</span></div>
+      <div><strong>6</strong><span>Phương thức xét tuyển trong thông báo tuyển sinh 2026</span></div>
+      <div><strong>7</strong><span>Khối ngành được giới thiệu trên cổng tuyển sinh</span></div>
+    </section>
+
+    <!-- ĐĂNG KÝ VÀ TRA CỨU HỒ SƠ -->
+    <section class="admission-section application-section" id="application">
+      <div class="admission-heading">
+        <span class="eyebrow">CỔNG ĐĂNG KÝ TRỰC TUYẾN</span>
+        <h2>Đăng ký và tra cứu hồ sơ</h2>
+        <p>Thử nghiệm quy trình đăng ký xét tuyển và tra cứu trạng thái hồ sơ trên hệ thống UDA Smart Assistant.</p>
+      </div>
+
+      <div class="demo-warning">
+        <i data-lucide="info"></i>
+        <p><strong>Chế độ mô phỏng:</strong> Nguyên và Hoàng đang thử nghiệm chức năng này.</p>
+      </div>
+
+      <div class="application-grid">
+        <!-- FORM ĐĂNG KÝ -->
+        <div class="application-card">
+          <div class="application-card-heading">
+            <div class="application-icon"><i data-lucide="file-pen-line"></i></div>
+            <div>
+              <h3>Đăng ký xét tuyển</h3>
+              <p>Điền thông tin để tạo hồ sơ mô phỏng.</p>
+            </div>
+          </div>
+
+          <form id="admissionForm">
+            <div class="form-field">
+              <label for="appFullName">Họ và tên <span>*</span></label>
+              <input id="appFullName" name="fullName" type="text" maxlength="100" placeholder="Nguyễn Văn A" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="appPhone">Số điện thoại <span>*</span></label>
+                <input id="appPhone" name="phone" type="tel" maxlength="20" placeholder="0901234567" required>
+              </div>
+              <div class="form-field">
+                <label for="appEmail">Email</label>
+                <input id="appEmail" name="email" type="email" maxlength="150" placeholder="demo@example.com">
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="appHighSchool">Trường THPT</label>
+              <input id="appHighSchool" name="highSchool" type="text" maxlength="150" placeholder="Tên trường THPT">
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="appGraduationYear">Năm tốt nghiệp</label>
+                <input id="appGraduationYear" name="graduationYear" type="number" min="2000" max="2100"
+                  placeholder="2026">
+              </div>
+              <div class="form-field">
+                <label for="appScore">Điểm xét tuyển</label>
+                <input id="appScore" name="score" type="number" min="0" max="30" step="0.01" placeholder="24.5">
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="appAdmissionMethod">Phương thức xét tuyển <span>*</span></label>
+              <select id="appAdmissionMethod" name="admissionMethod" required>
+                <option value="">-- Chọn phương thức --</option>
+                <option value="Xét tuyển thẳng">Xét tuyển thẳng</option>
+                <option value="Điểm thi tốt nghiệp THPT">Điểm thi tốt nghiệp THPT</option>
+                <option value="Học bạ THPT">Học bạ THPT</option>
+                <option value="Đánh giá năng lực ĐHQG TP.HCM">Đánh giá năng lực ĐHQG TP.HCM</option>
+                <option value="Chứng chỉ ngoại ngữ quốc tế">Chứng chỉ ngoại ngữ quốc tế</option>
+                <option value="Tốt nghiệp THPT nước ngoài">Tốt nghiệp THPT nước ngoài</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="appMajor">Ngành đăng ký <span>*</span></label>
+              <select id="appMajor" name="majorCode" required>
+                <option value="">Đang tải danh sách ngành...</option>
+              </select>
+              <small id="majorLoadMessage" class="field-hint"></small>
+            </div>
+
+            <button class="application-submit" type="submit" id="applicationSubmit">
+              <i data-lucide="send"></i> Gửi hồ sơ mô phỏng
+            </button>
+
+            <div id="registrationResult" class="application-result" role="status" aria-live="polite" hidden></div>
+          </form>
+        </div>
+
+        <!-- FORM TRA CỨU -->
+        <div class="application-card lookup-card">
+          <div class="application-card-heading">
+            <div class="application-icon lookup-icon"><i data-lucide="search-check"></i></div>
+            <div>
+              <h3>Tra cứu hồ sơ</h3>
+              <p>Nhập mã hồ sơ đã nhận sau khi đăng ký.</p>
+            </div>
+          </div>
+
+          <form id="lookupForm">
+            <div class="form-field">
+              <label for="lookupCode">Mã hồ sơ</label>
+              <input id="lookupCode" name="applicationCode" type="text" maxlength="40"
+                placeholder="Ví dụ: UDA9978215577C0" required>
+            </div>
+            <button class="application-submit lookup-submit" type="submit" id="lookupSubmit">
+              <i data-lucide="search"></i> Tra cứu hồ sơ
+            </button>
+          </form>
+
+          <div id="lookupResult" class="lookup-result" role="status" aria-live="polite" hidden></div>
+
+          <div class="lookup-guide">
+            <i data-lucide="lightbulb"></i>
+            <p>Mã hồ sơ được tạo tự động sau khi đăng ký thành công. Hãy lưu lại mã để tra cứu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="admission-section" id="methods">
+      <div class="admission-heading">
+        <span class="eyebrow">PHƯƠNG THỨC XÉT TUYỂN</span>
+        <h2>6 phương thức tuyển sinh năm 2026</h2>
+        <p>Các phương thức dưới đây được trích lược từ thông báo tuyển sinh đại học chính quy năm 2026 của Đại học Đông
+          Á.</p>
+      </div>
+      <div class="method-grid">
+        <article class="method-card"><span class="method-number">01</span>
+          <div class="method-icon"><i data-lucide="award"></i></div>
+          <h3>Xét tuyển thẳng</h3>
+          <p>Thực hiện theo Quy chế tuyển sinh hiện hành.</p>
+        </article>
+        <article class="method-card"><span class="method-number">02</span>
+          <div class="method-icon"><i data-lucide="file-check"></i></div>
+          <h3>Điểm thi tốt nghiệp THPT</h3>
+          <p>Sử dụng kết quả kỳ thi tốt nghiệp THPT năm 2026.</p>
+        </article>
+        <article class="method-card"><span class="method-number">03</span>
+          <div class="method-icon"><i data-lucide="clipboard-check"></i></div>
+          <h3>Kết quả học tập THPT</h3>
+          <p>Xét tuyển dựa trên kết quả học tập các môn học cấp THPT (học bạ).</p>
+        </article>
+        <article class="method-card"><span class="method-number">04</span>
+          <div class="method-icon"><i data-lucide="brain"></i></div>
+          <h3>Đánh giá năng lực</h3>
+          <p>Sử dụng kết quả kỳ thi ĐGNL do Đại học Quốc gia TP.HCM tổ chức năm 2026.</p>
+        </article>
+        <article class="method-card"><span class="method-number">05</span>
+          <div class="method-icon"><i data-lucide="languages"></i></div>
+          <h3>Chứng chỉ ngoại ngữ quốc tế</h3>
+          <p>Kết hợp kết quả chứng chỉ năng lực ngoại ngữ quốc tế hoặc tương đương với điểm thi tốt nghiệp THPT theo quy
+            định.</p>
+        </article>
+        <article class="method-card"><span class="method-number">06</span>
+          <div class="method-icon"><i data-lucide="globe"></i></div>
+          <h3>Tốt nghiệp THPT nước ngoài</h3>
+          <p>Áp dụng đối với ngành Y khoa theo thông báo tuyển sinh 2026.</p>
+        </article>
+      </div>
+      <p class="section-source">Nguồn: <a
+          href="https://donga.edu.vn/tuyensinh/ts-chi-tiet/thong-tin-tuyen-sinh-dai-hoc-dong-a-nam-2026-42971"
+          target="_blank" rel="noopener">Thông báo tuyển sinh Đại học Đông Á năm 2026</a>.</p>
+    </section>
+
+    <section class="admission-section majors-section" id="majors">
+      <div class="admission-heading">
+        <span class="eyebrow">KHÁM PHÁ NGÀNH HỌC</span>
+        <h2>Tìm ngành học phù hợp với bạn</h2>
+        <p>Tham khảo các khối ngành được giới thiệu trên cổng tuyển sinh của trường. Danh mục ngành, mã ngành và tổ hợp
+          có thể thay đổi theo từng năm.</p>
+      </div>
+      <div class="major-grid">
+        <article class="major-card"><i data-lucide="languages"></i>
+          <h3>Ngôn ngữ</h3>
+          <p>Khám phá các chương trình đào tạo ngôn ngữ và định hướng nghề nghiệp liên quan.</p>
+        </article>
+        <article class="major-card"><i data-lucide="briefcase-business"></i>
+          <h3>Kinh doanh và quản lý</h3>
+          <p>Tìm hiểu các lĩnh vực quản trị, kinh doanh, marketing và quản lý.</p>
+        </article>
+        <article class="major-card"><i data-lucide="plane"></i>
+          <h3>Du lịch – Khách sạn – Nhà hàng</h3>
+          <p>Các chương trình gắn với dịch vụ, du lịch và quản trị khách sạn.</p>
+        </article>
+        <article class="major-card"><i data-lucide="cpu"></i>
+          <h3>Công nghệ – Kỹ thuật</h3>
+          <p>Tham khảo các ngành công nghệ, kỹ thuật và ứng dụng kỹ thuật.</p>
+        </article>
+        <article class="major-card"><i data-lucide="palette"></i>
+          <h3>Thiết kế và sáng tạo</h3>
+          <p>Tìm hiểu các lĩnh vực thiết kế, đồ họa và truyền thông sáng tạo.</p>
+        </article>
+        <article class="major-card"><i data-lucide="heart-pulse"></i>
+          <h3>Khoa học sức khỏe</h3>
+          <p>Tham khảo thông tin các ngành thuộc khối sức khỏe theo đề án tuyển sinh.</p>
+        </article>
+        <article class="major-card"><i data-lucide="sprout"></i>
+          <h3>Nông nghiệp và sinh học</h3>
+          <p>Khám phá các chương trình liên quan đến sinh học, thực phẩm và nông nghiệp.</p>
+        </article>
+      </div>
+      <div class="major-actions">
+        <a class="admission-outline-btn" href="https://donga.edu.vn/tuyensinh" target="_blank" rel="noopener">Xem danh
+          mục ngành chính thức <i data-lucide="external-link"></i></a>
+        <button class="admission-outline-btn" type="button"
+          onclick="askUDA('Cho tôi xem danh sách ngành đào tạo và mã ngành của Đại học Đông Á')">Hỏi AI về ngành học <i
+            data-lucide="message-circle"></i></button>
+      </div>
+
+    </section>
+
+    <section class="admission-section process-section" id="process">
+
+      <div class="admission-heading">
+        <span class="eyebrow">HƯỚNG DẪN THAM KHẢO</span>
+        <h2>Các bước tìm hiểu và đăng ký xét tuyển</h2>
+        <p>Quy trình cụ thể, thời hạn và hồ sơ phải theo thông báo của từng kỳ tuyển sinh.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item"><span>01</span>
+          <div>
+            <h3>Tìm hiểu ngành học</h3>
+            <p>Đọc thông tin ngành, chương trình đào tạo và tổ hợp xét tuyển trong thông báo chính thức.</p>
+          </div>
+        </div>
+        <div class="process-item"><span>02</span>
+          <div>
+            <h3>Kiểm tra điều kiện</h3>
+            <p>Đối chiếu điều kiện dự tuyển và ngưỡng đầu vào của ngành theo đề án tuyển sinh áp dụng.</p>
+          </div>
+        </div>
+        <div class="process-item"><span>03</span>
+          <div>
+            <h3>Chuẩn bị hồ sơ</h3>
+            <p>Chuẩn bị giấy tờ theo hướng dẫn chính thức; không sử dụng danh sách hồ sơ của năm cũ nếu trường đã cập
+              nhật.</p>
+          </div>
+        </div>
+        <div class="process-item"><span>04</span>
+          <div>
+            <h3>Theo dõi kết quả</h3>
+            <p>Kiểm tra thông báo, kết quả xét tuyển và hướng dẫn xác nhận nhập học từ nhà trường.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="admission-cta">
+      <div><span class="eyebrow">BẠN CẦN HỖ TRỢ?</span>
+        <h2>Chưa biết bắt đầu từ đâu?</h2>
+        <p>Đặt câu hỏi cho UDA Smart Assistant để tìm hiểu thông tin tuyển sinh và học tập.</p>
+      </div>
+      <button type="button" onclick="askUDA('Tôi cần tư vấn thông tin tuyển sinh Đại học Đông Á')"><i
+          data-lucide="bot"></i> Trò chuyện với trợ lý AI</button>
+    </section>
+
+    <section class="admission-section faq-section" id="faq">
+      <div class="admission-heading"><span class="eyebrow">CÂU HỎI THƯỜNG GẶP</span>
+        <h2>Thông tin bạn có thể quan tâm</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Đại học Đông Á có những phương thức xét tuyển nào?</summary>
+          <p>Thông báo tuyển sinh đại học chính quy năm 2026 nêu 6 phương thức. Bạn có thể xem phần phương thức xét
+            tuyển phía trên hoặc mở thông báo chính thức của trường.</p>
+        </details>
+        <details>
+          <summary>Làm thế nào để biết mã ngành và tổ hợp xét tuyển?</summary>
+          <p>Mã ngành và tổ hợp được công bố trong danh mục ngành của từng năm. Hãy kiểm tra thông báo tuyển sinh mới
+            nhất trước khi đăng ký.</p>
+        </details>
+        <details>
+          <summary>Thông tin tuyển sinh 2026 trên trang này còn áp dụng không?</summary>
+          <p>Đây là dữ liệu tham khảo của kỳ tuyển sinh 2026. Các mốc thời gian của kỳ này đã qua; vui lòng xem cổng
+            tuyển sinh chính thức để cập nhật thông báo mới.</p>
+        </details>
+        <details>
+          <summary>Tôi có thể hỏi chatbot về ngành học và học phí không?</summary>
+          <p>Có. Mở Trợ lý AI và nhập câu hỏi. Câu trả lời phụ thuộc vào dữ liệu hiện có của hệ thống; các thông tin
+            quan trọng cần đối chiếu với thông báo chính thức của trường.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="official-links">
+      <div><span class="eyebrow">NGUỒN THÔNG TIN</span>
+        <h2>Tra cứu tại cổng thông tin chính thức</h2>
+        <p>Đối chiếu thông tin trước khi thực hiện đăng ký hoặc chuẩn bị hồ sơ.</p>
+      </div>
+      <div class="official-link-list">
+        <a href="https://donga.edu.vn/tuyensinh" target="_blank" rel="noopener">Cổng tuyển sinh Đại học Đông Á <i
+            data-lucide="external-link"></i></a>
+        <a href="https://donga.edu.vn/tuyensinh/thong-tin-tuyen-sinh" target="_blank" rel="noopener">Thông báo và tin
+          tức tuyển sinh <i data-lucide="external-link"></i></a>
+        <a href="https://donga.edu.vn/tuyensinh/ts-chi-tiet/thong-tin-tuyen-sinh-dai-hoc-dong-a-nam-2026-42971"
+          target="_blank" rel="noopener">Thông báo tuyển sinh đại học chính quy 2026 <i
+            data-lucide="external-link"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <div class="brand-logo">UDA</div>
+      <div><strong>UDA SMART ASSISTANT</strong><span>Trợ lý hỗ trợ tra cứu thông tin học vụ và tuyển sinh</span></div>
+    </div>
+    <p>© 2026 UDA Smart Assistant. Thông tin mang tính tham khảo.</p>
+  </footer>
+
+  <button class="chat-launcher" id="chatLauncher" onclick="toggleChat()" aria-label="Mở trợ lý AI"><i
+      data-lucide="messages-square"></i></button>
+  <section class="chat-window" id="chatWindow" aria-label="Trợ lý AI UDA">
+    <header class="chat-header">
+      <div class="chat-brand">
+        <div class="chat-avatar"><i data-lucide="bot"></i></div>
+        <div><strong>Trợ lý AI UDA</strong><span><i></i> Sẵn sàng hỗ trợ</span></div>
+      </div>
+      <div class="chat-controls"><button onclick="minimizeChat()" title="Thu nhỏ">−</button><button
+          onclick="closeChat()" title="Đóng">×</button></div>
+    </header>
+    <section class="chat-container" id="chatContainer">
+      <div class="welcome" id="welcome">
+        <div class="welcome-icon"><i data-lucide="bot"></i></div>
+        <h1>Xin chào! Tôi có thể giúp gì cho bạn?</h1>
+        <p>Hãy đặt câu hỏi về tuyển sinh, học phí, ngành học hoặc thông tin học vụ tại UDA.</p>
+        <div class="suggestions">
+          <button onclick="quickQuestion('Thông tin tuyển sinh')"><i data-lucide="graduation-cap"></i>Thông tin tuyển
+            sinh</button>
+          <button onclick="quickQuestion('Học phí')"><i data-lucide="wallet"></i>Học phí</button>
+          <button onclick="quickQuestion('Danh sách ngành đào tạo')"><i data-lucide="book-open"></i>Ngành đào
+            tạo</button>
+          <button onclick="quickQuestion('Quy chế học vụ')"><i data-lucide="clipboard-list"></i>Quy chế học vụ</button>
+        </div>
+      </div>
+    </section>
+    <div class="input-area">
+      <div class="input-box"><input type="text" id="messageInput" placeholder="Nhập câu hỏi của bạn..."
+          onkeydown="handleEnter(event)"><button id="sendButton" onclick="sendMessage()"><i
+            data-lucide="send"></i></button></div>
+      <p>UDA Smart Assistant – Thông tin chỉ mang tính tham khảo.</p>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js"></script>
+  <script src="admission.js"></script>
+</body>
+
+</html>

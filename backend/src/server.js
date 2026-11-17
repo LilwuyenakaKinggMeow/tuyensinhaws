@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const chatRoutes = require("./routes/chat");
+const admissionRoutes = require("./routes/admission");
 
 const app = express();
 
@@ -22,6 +23,9 @@ app.get("/", (req, res) => {
 
 // Chat API
 app.use("/api/chat", chatRoutes);
+
+// Admission API
+app.use("/api/admission", admissionRoutes);
 
 app.get("/api/health", (req, res) => {
     res.status(200).json({
